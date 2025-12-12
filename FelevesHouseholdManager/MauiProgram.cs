@@ -18,6 +18,8 @@ namespace FelevesHouseholdManager
 #if DEBUG
     		builder.Logging.AddDebug();
 #endif
+            builder.Services.AddSingleton<TodoPageViewModel>();
+            builder.Services.AddSingleton<TodoPage>();
 
             return builder.Build();
         }

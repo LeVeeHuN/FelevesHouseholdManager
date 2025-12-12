@@ -31,7 +31,7 @@ namespace FelevesHouseholdManager
         [RelayCommand]
         async Task AddNewAsync()
         {
-            // Put navigation here
+            await Shell.Current.GoToAsync("newtodo");
         }
 
         [RelayCommand]

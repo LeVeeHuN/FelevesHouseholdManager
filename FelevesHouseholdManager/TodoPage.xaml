@@ -2,11 +2,35 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="FelevesHouseholdManager.TodoPage"
-             Title="TodoPage">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+             Title="TodoPage"
+             xmlns:local="clr-namespace:FelevesHouseholdManager"
+             x:DataType="local:TodoPageViewModel">
+    <Grid RowDefinitions="Auto,*">
+        <VerticalStackLayout Grid.Row="0">
+            <Label Text="TODOs"/>
+        </VerticalStackLayout>
+
+        <ScrollView Grid.Row="1">
+            <CollectionView ItemsSource="{Binding Todos}"
+                                SelectedItem="{Binding SelectedTodo}"
+                                SelectionMode="Single">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="local:Todo">
+                        <Border Stroke="Black" StrokeThickness="1" Margin="5">
+                            <VerticalStackLayout VerticalOptions="Center">
+                                <Label Text="{Binding Title}" FontAttributes="Bold"/>
+                                <Label Text="{Binding Description}"/>
+                                <Label Text="{Binding CreatedAt}"/>
+                            </VerticalStackLayout>
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </ScrollView>
+        <HorizontalStackLayout Spacing="10">
+            <Button Text="Add new item" Command="{Binding AddNewCommand}"/>
+            <Button Text="Delete selected" Command="{Binding DeleteSelectedCommand}"/>
+            <Button Text="Share selected" Command="{Binding ShareSelectedCommand}"/>
+        </HorizontalStackLayout>
+    </Grid>
 </ContentPage>
