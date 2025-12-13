@@ -20,6 +20,8 @@ namespace FelevesHouseholdManager
 #endif
             builder.Services.AddSingleton<TodoPageViewModel>();
             builder.Services.AddSingleton<TodoPage>();
+            builder.Services.AddSingleton<WishPageViewModel>();
+            builder.Services.AddSingleton<WishPage>();
 
             return builder.Build();
         }

@@ -14,5 +14,9 @@
         Title="TODOs"
         ContentTemplate="{DataTemplate local:TodoPage}"
         Route="TodoPage"/>
+    <ShellContent
+        Title="Wishes"
+        ContentTemplate="{DataTemplate local:WishPage}"
+        Route="WishPage"/>
 
 </Shell>

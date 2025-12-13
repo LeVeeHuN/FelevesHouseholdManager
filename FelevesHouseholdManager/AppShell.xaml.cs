@@ -6,6 +6,7 @@
         {
             InitializeComponent();
             Routing.RegisterRoute("newtodo", typeof(NewTodoPage));
+            Routing.RegisterRoute("newwish", typeof(NewWishPage));
         }
     }
 }
