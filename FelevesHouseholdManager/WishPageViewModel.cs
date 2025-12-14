@@ -49,6 +49,19 @@ namespace FelevesHouseholdManager
         }
 
         [RelayCommand]
+        void MarkSelectedAsCompleted()
+        {
+            if (SelectedWish != null)
+            {
+                SelectedWish.IsPurchased = true;
+            }
+            else
+            {
+                WeakReferenceMessenger.Default.Send("Select an item to mark as purchased");
+            }
+        }
+
+        [RelayCommand]
         async Task ShareSelected()
         {
             if (SelectedWish != null)

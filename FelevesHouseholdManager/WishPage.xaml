@@ -5,6 +5,11 @@
              Title="WishPage"
              xmlns:local="clr-namespace:FelevesHouseholdManager"
              x:DataType="local:WishPageViewModel">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:CompletedToColorConverter x:Key="CompletedToColorConverter"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <Grid RowDefinitions="Auto,*">
         <VerticalStackLayout Grid.Row="0">
             <Label Text="Wishes"/>
@@ -17,7 +22,7 @@
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="local:Wish">
                         <Border Stroke="Black" StrokeThickness="1" Margin="5">
-                            <VerticalStackLayout VerticalOptions="Center">
+                            <VerticalStackLayout VerticalOptions="Center" BackgroundColor="{Binding IsPurchased, Converter={StaticResource CompletedToColorConverter}}">
                                 <Label Text="{Binding Title}" FontAttributes="Bold"/>
                                 <Label Text="{Binding Description}"/>
                                 <Label Text="{Binding Price, StringFormat='{0} Ft'}"/>
@@ -30,6 +35,7 @@
         </ScrollView>
         <HorizontalStackLayout Spacing="10">
             <Button Text="Add new item" Command="{Binding AddNewCommand}"/>
+            <Button Text="Mark as purchased" Command="{Binding MarkSelectedAsCompletedCommand}"/>
             <Button Text="Delete selected" Command="{Binding DeleteSelectedCommand}"/>
             <Button Text="Share selected" Command="{Binding ShareSelectedCommand}"/>
         </HorizontalStackLayout>

@@ -24,6 +24,9 @@ namespace FelevesHouseholdManager
             builder.Services.AddSingleton<WishPage>();
             builder.Services.AddSingleton<FinancesPageViewModel>();
             builder.Services.AddSingleton<FinancesPage>();
+            builder.Services.AddSingleton<MainPageViewModel>();
+            builder.Services.AddSingleton<MainPage>();
+            builder.Services.AddSingleton<IDataStorage, JsonDataStorage>();
 
             return builder.Build();
         }

@@ -35,6 +35,24 @@ namespace FelevesHouseholdManager
         }
 
         [RelayCommand]
+        async Task EditTodoAsync()
+        {
+            if (SelectedTodo != null)
+            {
+                var param = new ShellNavigationQueryParameters
+                {
+                    {"todo", SelectedTodo }
+                };
+                await Shell.Current.GoToAsync("edittodo", param);
+            }
+            else
+            {
+                WeakReferenceMessenger.Default.Send("Select an item to edit");
+            }
+            
+        }
+
+        [RelayCommand]
         void DeleteSelected()
         {
             if (SelectedTodo != null)
@@ -45,6 +63,19 @@ namespace FelevesHouseholdManager
             else
             {
                 WeakReferenceMessenger.Default.Send("Select an item to delete");
+            }
+        }
+
+        [RelayCommand]
+        void MarkSelectedAsCompleted()
+        {
+            if (SelectedTodo != null)
+            {
+                SelectedTodo.IsCompleted = true;
+            }
+            else
+            {
+                WeakReferenceMessenger.Default.Send("Select an item to mark as completed");
             }
         }
 

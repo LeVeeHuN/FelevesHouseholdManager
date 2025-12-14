@@ -20,7 +20,7 @@ public partial class NewExpensePage : ContentPage
             return;
         }
 
-        string localFilePath = Path.Combine(FileSystem.CacheDirectory, photo.FileName);
+        string localFilePath = Path.Combine(FileSystem.AppDataDirectory, photo.FileName);
 
         using Stream sourceStream = await photo.OpenReadAsync();
         using FileStream localFileStream = File.OpenWrite(localFilePath);
@@ -41,7 +41,7 @@ public partial class NewExpensePage : ContentPage
             return;
         }
 
-        string localFilePath = Path.Combine(FileSystem.CacheDirectory, photo.FileName);
+        string localFilePath = Path.Combine(FileSystem.AppDataDirectory, photo.FileName);
 
         using Stream sourceStream = await photo.OpenReadAsync();
         using FileStream localFileStream = File.OpenWrite(localFilePath);

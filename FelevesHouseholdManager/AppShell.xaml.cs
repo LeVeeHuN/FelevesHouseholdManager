@@ -9,6 +9,7 @@
             Routing.RegisterRoute("newwish", typeof(NewWishPage));
             Routing.RegisterRoute("newexpense", typeof(NewExpensePage));
             Routing.RegisterRoute("newincome", typeof(NewIncomePage));
+            Routing.RegisterRoute("edittodo", typeof(EditTodoPage));
         }
     }
 }

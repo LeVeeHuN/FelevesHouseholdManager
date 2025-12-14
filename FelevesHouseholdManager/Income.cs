@@ -21,4 +21,12 @@ namespace FelevesHouseholdManager
         [ObservableProperty]
         DateTime createdAt;
     }
+
+    public class IncomeDto
+    {
+        public string Title { get; set; }
+        public string? Description { get; set; }
+        public int Price { get; set; }
+        public DateTime CreatedAt { get; set; }
+    }
 }

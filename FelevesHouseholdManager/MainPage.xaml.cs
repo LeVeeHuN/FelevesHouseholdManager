@@ -1,24 +1,30 @@
-﻿namespace FelevesHouseholdManager
+﻿using System.Threading.Tasks;
+
+namespace FelevesHouseholdManager
 {
     public partial class MainPage : ContentPage
     {
-        int count = 0;
-
-        public MainPage()
+        MainPageViewModel viewModel;
+        public MainPage(MainPageViewModel vm)
         {
             InitializeComponent();
+            viewModel = vm;
+            BindingContext = viewModel;
         }
 
-        private void OnCounterClicked(object? sender, EventArgs e)
+        private async void Button_Clicked(object sender, EventArgs e)
         {
-            count++;
+            await Shell.Current.GoToAsync("//TodoPage");
+        }
 
-            if (count == 1)
-                CounterBtn.Text = $"Clicked {count} time";
-            else
-                CounterBtn.Text = $"Clicked {count} times";
+        private async void Button_Clicked_1(object sender, EventArgs e)
+        {
+            await Shell.Current.GoToAsync("//WishPage");
+        }
 
-            SemanticScreenReader.Announce(CounterBtn.Text);
+        private async void Button_Clicked_2(object sender, EventArgs e)
+        {
+            await Shell.Current.GoToAsync("//FinancesPage");
         }
     }
 }

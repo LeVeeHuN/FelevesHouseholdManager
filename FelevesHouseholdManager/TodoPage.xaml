@@ -5,6 +5,11 @@
              Title="TodoPage"
              xmlns:local="clr-namespace:FelevesHouseholdManager"
              x:DataType="local:TodoPageViewModel">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:CompletedToColorConverter x:Key="CompletedToColorConverter"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <Grid RowDefinitions="Auto,*">
         <VerticalStackLayout Grid.Row="0">
             <Label Text="TODOs"/>
@@ -17,7 +22,7 @@
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="local:Todo">
                         <Border Stroke="Black" StrokeThickness="1" Margin="5">
-                            <VerticalStackLayout VerticalOptions="Center">
+                            <VerticalStackLayout VerticalOptions="Center" BackgroundColor="{Binding IsCompleted, Converter={StaticResource CompletedToColorConverter}}">
                                 <Label Text="{Binding Title}" FontAttributes="Bold"/>
                                 <Label Text="{Binding Description}"/>
                                 <Label Text="{Binding CreatedAt}"/>
@@ -29,6 +34,8 @@
         </ScrollView>
         <HorizontalStackLayout Spacing="10">
             <Button Text="Add new item" Command="{Binding AddNewCommand}"/>
+            <Button Text="Mark as completed" Command="{Binding MarkSelectedAsCompletedCommand}"/>
+            <Button Text="Edit selected" Command="{Binding EditTodoCommand}"/>
             <Button Text="Delete selected" Command="{Binding DeleteSelectedCommand}"/>
             <Button Text="Share selected" Command="{Binding ShareSelectedCommand}"/>
         </HorizontalStackLayout>

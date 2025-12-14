@@ -67,6 +67,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="EditTodoPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="FinancesPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
