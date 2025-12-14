@@ -7,6 +7,8 @@
             InitializeComponent();
             Routing.RegisterRoute("newtodo", typeof(NewTodoPage));
             Routing.RegisterRoute("newwish", typeof(NewWishPage));
+            Routing.RegisterRoute("newexpense", typeof(NewExpensePage));
+            Routing.RegisterRoute("newincome", typeof(NewIncomePage));
         }
     }
 }

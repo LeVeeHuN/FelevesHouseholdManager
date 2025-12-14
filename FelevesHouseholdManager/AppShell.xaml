@@ -18,5 +18,9 @@
         Title="Wishes"
         ContentTemplate="{DataTemplate local:WishPage}"
         Route="WishPage"/>
+    <ShellContent
+        Title="Finances"
+        ContentTemplate="{DataTemplate local:FinancesPage}"
+        Route="FinancesPage"/>
 
 </Shell>

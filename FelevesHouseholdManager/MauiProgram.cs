@@ -22,6 +22,8 @@ namespace FelevesHouseholdManager
             builder.Services.AddSingleton<TodoPage>();
             builder.Services.AddSingleton<WishPageViewModel>();
             builder.Services.AddSingleton<WishPage>();
+            builder.Services.AddSingleton<FinancesPageViewModel>();
+            builder.Services.AddSingleton<FinancesPage>();
 
             return builder.Build();
         }
